@@ -3,10 +3,10 @@ public class Main {
     public static int calculateYear(int cellContent) {
         boolean checkYear = ((cellContent % 4 == 0) && (cellContent % 100 != 0) || (cellContent % 400 == 0));
         if (checkYear) {
-        System.out.println(cellContent + " год является високосным");
-    } else {
-        System.out.println(cellContent + " год не является високосным");
-    }
+            System.out.println(cellContent + " год является високосным");
+        } else {
+            System.out.println(cellContent + " год не является високосным");
+        }
         return cellContent;
     } // Для задачи 1.
 
@@ -18,22 +18,23 @@ public class Main {
             return 1;
         }
     } // Для задачи 2.
-    public static void getYearOfIssue(int DeviceYear) {
 
-        if (DeviceYear >= 2015) {
-            System.out.println("Рекомендуем Вам установить обычную версию приложение!"); }
-        if (DeviceYear < 2015) {
-            System.out.println("Рекомендуем Вам установить lite-версию (облегченную версию) приложения."); }
+    public static void printMessageDeviceOS(int result, int deviceYear) {
+        if (result == 0 && deviceYear >= 2015) {
+            System.out.println("Рекомендуем Вам установить обычную версию для приложения iOS по ссылке");
+        }
+        if (result == 0 && deviceYear < 2015) {
+            System.out.println("Рекомендуем Вам установить lite-версию приложения для iOS по ссылке");
+        }
+        if (result == 1 && deviceYear >= 2015) {
+            System.out.println("Рекомендуем Вам установить обычную версию для приложения Android по ссылке");
+        }
+        if (result == 1 && deviceYear < 2015) {
+            System.out.println("Рекомендуем Вам установить lite-версию приложения для Android по ссылке");
+        }
     } // Для задачи 2.
 
-    public static void getDeviceOS(int result) {
-        if (result == 0) {
-            System.out.println("Установите версию приложения для iOS по ссылке"); }
-        else {
-            System.out.println("Установите версию приложения для Android по ссылке"); }
-    } // Для задачи 2.
-
-    public static int calculationDistance (int radius) {
+    public static int calculationDistance(int radius) {
         int deliverDays = 1;
         if (radius > 20 && radius < 60) {
             deliverDays++;
@@ -61,11 +62,10 @@ public class Main {
 
     public static void task2() {
 
-        String clientOsName = "ios";
+        String clientOsName = "iOS";
         int clientDeviceYear = 2017;
         int clientOS = getClientOS(clientOsName);
-        getDeviceOS(clientOS);
-        getYearOfIssue(clientDeviceYear);
+        printMessageDeviceOS(clientOS, clientDeviceYear);
 
     }
 
